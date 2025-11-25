@@ -19,7 +19,7 @@ function App() {
 
         setRawData(data);
 
-        // 收集所有「民國年」與「種類」
+        // 所有「民國年」與「種類」
         const yearSet = new Set();
         const categorySet = new Set();
 
@@ -28,7 +28,7 @@ function App() {
           categorySet.add(row["種類"]);
         });
 
-        // 年份排序（民國年是字串，轉成數字後排序）
+        // 年份排序
         const yearList = Array.from(yearSet).sort(
           (a, b) => Number(a) - Number(b)
         );
@@ -49,7 +49,7 @@ function App() {
     load();
   }, []);
 
-  // 依照選擇的年 + 種類做篩選，再整理成表格用的格式
+  // 篩選，整理成表格需要的格式
   const filtered = rawData
     .filter((row) => {
       if (!selectedYear || !selectedCategory) return false;
