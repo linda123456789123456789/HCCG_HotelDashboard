@@ -8,11 +8,11 @@
 
 ## 專案目的
 
-- 設計雲端前端架構，提供 React 靜態網頁部署方案  
-- 串接新竹市旅宿業住宿率 Open Data，作為第三方 RESTful API 範例  
+- 設計雲端前端架構，提供 React 靜態網頁部署方案
+- 串接新竹市旅宿業住宿率 Open Data，作為第三方 RESTful API 範例
 - 以前端儀表板方式呈現「民國年 × 種類」下，各月份的：
-  - 客房住用率  
-  - 客房收入  
+  - 客房住用率
+  - 客房收入
 
 ---
 
@@ -21,12 +21,11 @@
 - 以下拉選單選擇：
   - 民國年（例如 106, 107, …）
   - 住宿種類（觀光旅館、一般旅館…）
-- 自動篩選對應年度＋種類的資料  
+- 自動篩選對應年度＋種類的資料
 - 以表格列出 1–12 月：
-  - 月份  
-  - 客房住用率  
-  - 客房收入  
-- 後端作為 proxy，統一向新竹市 Open Data 取資料，解決 CORS 與第三方 API 變動問題  
+  - 月份
+  - 客房住用率
+  - 客房收入
 
 ---
 
@@ -43,9 +42,9 @@
   - AWS S3：放置 build 後的 React 靜態檔案
   - AWS CloudFront：CDN + HTTPS 入口
   - AWS API Gateway：提供 REST API Endpoint
-  - AWS Lambda (Python)：承載 FastAPI 後端程式
+  - AWS Lambda (Python)：FastAPI 後端程式
 - IaC
-  - Terraform：定義 S3 Static Website 等雲端資源（示意）
+  - Terraform：定義 S3 Static Website 等雲端資源
 
 ---
 
@@ -60,15 +59,16 @@ HCCG_HotelDashboard/
 │       └── App.jsx    # 主畫面：年分/種類選單＋表格呈現
 │
 ├── backend/           # FastAPI 後端 API
-│   ├── main.py        # /api/raw 等路由，proxy HCCG Open Data
-│   └── venv/          # Python 虛擬環境（不版控）
+│   ├── main.py
+│   └── venv/
 │
-├── infra/             # Infra as Code (Terraform 等)
-│   └── main.tf        # S3 Static Website 等雲端資源定義（示意）
+├── infra/             # Infra as Code (Terraform)
+│   └── main.tf        # S3 Static Website 等雲端資源定義
 │
-├── docs/              # 圖檔與文件（可選）
-│   ├── architecture.png  # 雲端前端架構圖
-│   ├── cicd.png          # CI/CD 流程圖
-│   └── gitflow.png       # Git 協作流程圖
+├── docs/
+│   ├── cloud_architecture.png
+│   ├── cicd.png
+│   └── gitflow.png
 │
 └── README.md
+```
